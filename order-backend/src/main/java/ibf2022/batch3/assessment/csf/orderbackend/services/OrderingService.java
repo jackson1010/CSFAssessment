@@ -3,11 +3,13 @@ package ibf2022.batch3.assessment.csf.orderbackend.services;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import ibf2022.batch3.assessment.csf.orderbackend.models.PizzaOrder;
 import ibf2022.batch3.assessment.csf.orderbackend.respositories.OrdersRepository;
 import ibf2022.batch3.assessment.csf.orderbackend.respositories.PendingOrdersRepository;
 
+@Service
 public class OrderingService {
 
 	@Autowired
@@ -15,7 +17,12 @@ public class OrderingService {
 
 	@Autowired
 	private PendingOrdersRepository pendingOrdersRepo;
-	
+
+	public void add(PizzaOrder order) {
+		ordersRepo.add(order);
+		pendingOrdersRepo.add(order);
+	}
+
 	// TODO: Task 5
 	// WARNING: DO NOT CHANGE THE METHOD'S SIGNATURE
 	public PizzaOrder placeOrder(PizzaOrder order) throws OrderException {
@@ -34,6 +41,5 @@ public class OrderingService {
 	public boolean markOrderDelivered(String orderId) {
 		return ordersRepo.markOrderDelivered(orderId) && pendingOrdersRepo.delete(orderId);
 	}
-
 
 }
