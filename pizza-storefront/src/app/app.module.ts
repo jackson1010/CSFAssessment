@@ -19,7 +19,7 @@ const routes: Routes = [
   declarations: [AppComponent, MainComponent, OrdersComponentComponent],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes),
+    RouterModule.forRoot(routes, { useHash: true }),
     HttpClientModule,
     ReactiveFormsModule,
   ],

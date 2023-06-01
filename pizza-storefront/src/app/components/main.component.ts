@@ -34,7 +34,7 @@ export class MainComponent implements OnInit {
   pizzaSvc = inject(PizzaService);
   result$!: Observable<any>;
   subscription!: Subscription;
-  email!:string;
+  email!: string;
 
   ngOnInit(): void {
     this.pizzaForm = this.createForm();
@@ -51,7 +51,7 @@ export class MainComponent implements OnInit {
         PIZZA_TOPPINGS.map((topping) => this.fb.control(false)),
         Validators.required
       ),
-      comments: this.fb.control<string>('', [Validators.required]),
+      comments: this.fb.control<string>(''),
     });
   }
 
@@ -94,8 +94,8 @@ export class MainComponent implements OnInit {
     )
       .then((result) => {
         console.log(result);
-        this.email=result.email;
-      this.router.navigate(['/orders', this.email ]);
+        this.email = result.email;
+        this.router.navigate(['/orders', this.email]);
       })
       .catch((error) => alert(JSON.stringify(error)));
   }

@@ -13,7 +13,7 @@ import jakarta.json.JsonObject;
 public class PendingOrdersRepository {
 
 	@Autowired
-	@Qualifier("pending-orders") 
+	@Qualifier("pending-orders")
 	RedisTemplate<String, String> template;
 
 	// TODO: Task 3
@@ -28,7 +28,9 @@ public class PendingOrdersRepository {
 	// TODO: Task 7
 	// WARNING: Do not change the method's signature.
 	public boolean delete(String orderId) {
-		return false;
+		System.out.println("delteing redis");
+		System.out.println("redis-----------"+orderId);
+		return template.delete(orderId);
 	}
 
 	public static JsonObject toJSON(PizzaOrder order) {

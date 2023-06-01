@@ -1,1 +1,24 @@
-<p>orders-component works!</p>
+<div class="container" *ngIf="result$ | async as orderList">
+    <h2 class="title"> Orders for {{email}}</h2>
+    <table class="maintable" *ngFor="let o of orderList; let i = index">
+        <tr>
+            <td colspan="2">
+                Date:{{o.date | date:'MM dd yyyy'}}
+            </td>
+        </tr>
+        <tr>
+            <td>
+                Order Id: {{o.orderId}}
+            </td>
+            <td>
+                <button class="buttons" (click)="delivered(o.orderId)"> Delivered</button>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                ${{o.total}}
+            </td>
+        </tr>
+    </table>
+    <button routerLink="/">Back to Ordering</button>
+</div>

@@ -1,0 +1,43 @@
+.container {
+    width: 80%;
+    margin: auto;
+    padding: 20px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+
+.maintable {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.maintable th,
+.maintable td {
+    padding: 15px;
+    border: 1px solid #ddd;
+    text-align: left;
+}
+
+
+.title {
+    color: #333;
+    font-size: 24px;
+}
+
+
+.buttons {
+    padding: 10px 20px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+    display: inline-block;
+}
+
+.buttons:hover {
+    background-color: #0056b3;
+}
